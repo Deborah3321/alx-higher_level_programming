@@ -1,22 +1,16 @@
 #!/usr/bin/python3
 """
-Displays the value of the X-Request-Id variable
-found in the header of the response
+Script that takes in a URL, sends a request to the URL and displays the
+value of the variable X-Request-Id in the response header.
+
+Usage: ./5-hbtn_header.py <URL>
 """
 import requests
 from sys import argv
 
 
-def main(argv):
-    """
-    Method that takes in a URL, sends a request to the URL
-    and displays the value of the X-Request-Id variable
-    found in the header of the response
-    """
-    url = argv[1]
-    r = requests.get(url)
-    headers = r.headers.get('X-Request-Id')
-    print(headers)
-
 if __name__ == "__main__":
-    main(argv)
+    url = argv[1]
+    req = requests.get(url)
+
+    print(req.headers.get("X-Request-Id"))
